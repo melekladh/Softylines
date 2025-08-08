@@ -25,6 +25,9 @@ def extract (path):
     )
 
     result = pipe("data/audio11.mp4")
+    
+    print(" type of result[text] is ",type(result["text"]))
+
     return result
 
 

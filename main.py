@@ -9,7 +9,7 @@ if  __name__=="__main__":
     path = "data/audio11.mp4"
     result = extract(path)
     transcript = result["text"]                
-
+    print ( transcript)
 
     
     timestamps=extract_segments(result)
@@ -17,6 +17,7 @@ if  __name__=="__main__":
     stemmed = stemmer(tokenized)
     
     summarized=summarize(transcript)
+    print (summarized )
     my_object=build(transcript,stemmed,timestamps,summarized)
 
 
