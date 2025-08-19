@@ -6,6 +6,7 @@ from utils.vector import load_vector
 from utils.load import load_docs
 from utils.storing import store_docs
 from utils.retrieval_and_gen import generate_answer
+from utils.splitting import split
 
 app = FastAPI()
 
@@ -14,7 +15,9 @@ embeddings = load_embedding()
 vector_store = load_vector(embeddings)
 
 docs = load_docs()
-store_docs(vector_store, docs)
+all_splits=split(docs)
+
+store_docs(vector_store, all_splits)
 
 class QuestionRequest(BaseModel):
     question: str

@@ -1,4 +1,6 @@
-from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 def load_embedding():
-    return OllamaEmbeddings(model="llama3")
+
+    embeddings = HuggingFaceEmbeddings(model_name="Omartificial-Intelligence-Space/GATE-AraBert-v1")
+    return embeddings

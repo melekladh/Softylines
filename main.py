@@ -10,7 +10,7 @@ from utils.vector import load_vector
 from utils.load import load_docs
 from utils.storing import store_docs
 from utils.retrieval_and_gen import generate_answer
-
+from utils.splitting import split
 
 
 if  __name__=="__main__":
@@ -29,10 +29,12 @@ if  __name__=="__main__":
     llm = load_model()
     embeddings = load_embedding()
     vector_store = load_vector(embeddings)
-
     docs = load_docs()
-    store_docs(vector_store,docs)
 
-    question = "عدد المشتركين في الهاتف القار  "
+    all_splits=split(docs)
+
+    store_docs(vector_store,all_splits)
+
+    question =  "عدد المشتركين في الهاتف القار"
     answer = generate_answer(vector_store, llm, question)
     print(answer, "test\n\n\n")
