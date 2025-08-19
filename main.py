@@ -12,29 +12,29 @@ from utils.storing import store_docs
 from utils.retrieval_and_gen import generate_answer
 from utils.splitting import split
 
+def pipeline(question):
+    if  __name__=="__main__":
+        path = "data/audio/audio11.mp4" 
+        result = extract(path)
+        transcript = result["text"]                
 
-if  __name__=="__main__":
-    path = "data/audio/audio11.mp4" 
-    result = extract(path)
-    transcript = result["text"]                
+        
+        timestamps = extract_segments(result)
+        tokenized = tokenizer(transcript)
+        stemmed = stemmer(tokenized)
+        
+        summarized = summarize(transcript)
+        my_object = build(transcript,stemmed,timestamps,summarized)
 
-    
-    timestamps = extract_segments(result)
-    tokenized = tokenizer(transcript)
-    stemmed = stemmer(tokenized)
-    
-    summarized = summarize(transcript)
-    my_object = build(transcript,stemmed,timestamps,summarized)
+        llm = load_model()
+        embeddings = load_embedding()
+        vector_store = load_vector(embeddings)
+        docs = load_docs()
 
-    llm = load_model()
-    embeddings = load_embedding()
-    vector_store = load_vector(embeddings)
-    docs = load_docs()
+        all_splits=split(docs)
 
-    all_splits=split(docs)
+        store_docs(vector_store,all_splits)
 
-    store_docs(vector_store,all_splits)
-
-    question =  "عدد المشتركين في الهاتف القار"
-    answer = generate_answer(vector_store, llm, question)
-    print(answer, "test\n\n\n") 
+        answer = generate_answer(vector_store, llm, question)
+        print(answer, "test\n\n\n") 
+        return answer
