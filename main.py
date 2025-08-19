@@ -37,4 +37,4 @@ if  __name__=="__main__":
 
     question =  "عدد المشتركين في الهاتف القار"
     answer = generate_answer(vector_store, llm, question)
-    print(answer, "test\n\n\n")
+    print(answer, "test\n\n\n") 
