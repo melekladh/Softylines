@@ -13,7 +13,6 @@ from utils.retrieval_and_gen import generate_answer
 from utils.splitting import split
 
 def pipeline(question):
-    if  __name__=="__main__":
         path = "data/audio/audio11.mp4" 
         result = extract(path)
         transcript = result["text"]                

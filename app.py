@@ -12,3 +12,4 @@ def ask_question(question: str):
     print(question, "question\n\n")
     return {"answer":    pipeline(question)}
 
+
