@@ -23,7 +23,7 @@ def pipeline(question):
         stemmed = stemmer(tokenized)
         
         summarized = summarize(transcript)
-        my_object = build(transcript,stemmed,timestamps,summarized)
+        build(transcript,stemmed,timestamps,summarized)
 
         llm = load_model()
         embeddings = load_embedding()

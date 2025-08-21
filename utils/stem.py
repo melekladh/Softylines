@@ -1,6 +1,5 @@
 
 def stemmer(tokens):
-    from nltk.tokenize import word_tokenize
     import nltk
     from nltk.stem.isri import ISRIStemmer
     nltk.download('punkt')
